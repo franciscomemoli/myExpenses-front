@@ -1,0 +1,29 @@
+<div ng-init="loadHome()">
+	<h1>{{'My expenses' | translate}}</h1>
+	<div class="row">
+		<a ng-href="#/expense/new" class="pull-right btn btn-default">{{'new expense' | translate | Capitalize}}</a>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+		</div>
+		<div class="col-sm-6 text-right">
+			<h3>{{'actual balance:' | translate | Capitalize}} {{balance | currency}}</h3>
+		</div>
+	</div>
+	<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<th>{{'description' | translate | Capitalize}}</th>
+			<th>{{'type' | translate | Capitalize}}</th>
+			<th>{{'total' | translate | Capitalize}}</th>
+			<th>{{'date' | translate | Capitalize}}</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="expense in myExpenses">
+				<td>{{expense.description}}</td>
+				<td>{{expense.typeId | getAttributeById : types : 'name' }}</td>
+				<td>{{expense.total}}</td>
+				<td>{{expense.date}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

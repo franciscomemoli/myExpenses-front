@@ -1,0 +1,22 @@
+<div  class="row" ng-init="loadNewExpend()">
+	<form name="newExpense">
+	  <div class="form-group">
+	    <label for="Description">{{'description' | translate | Capitalize}}</label>
+	    <input required type="text" ng-model="newExpend.description" class="form-control" id="Description" placeholder="{{'description' | translate | Capitalize}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="date">{{'date' | translate | Capitalize}}</label>
+	    <input required type="date" ng-model="newExpend.date" class="form-control" id="date" placeholder="{{'date' | translate | Capitalize}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="total">{{'total' | translate | Capitalize}}</label>
+	    <input required type="number" ng-model="newExpend.total" class="form-control" id="total" placeholder="{{'total' | translate | Capitalize}}">
+	  </div>
+	  <div class="form-group">
+	    <label for="typeId">{{'type' | translate | Capitalize}}</label>
+	    <select required class="form-control" id="typeId" ng-options="item.id as item.name for item in types track by item.id" ng-model="newExpend.typeId"></select>
+	  </div>
+	  <button type="submit" class="btn btn-default" ng-click="saveNewExpense(newExpend)">{{'Add' | translate}}</button>
+	  <button type="submit" class="btn btn-default" ng-click="saveNewExpenseAndContinue(newExpend)">{{'Add and continue' | translate}}</button>
+	</form>
+</div>
